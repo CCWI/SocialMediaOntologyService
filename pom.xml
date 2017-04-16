@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.hm.mpi</groupId>
+	<artifactId>twitterDataToRDFParser</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Twitter Data Parser</name>
+	<description>Parser to transform relational Twitter Data to RDF by Stanford CoreNLP</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- Text Analysis -->
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<version>3.2.0</version>
+			<classifier>models</classifier>
+		</dependency>
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-parser</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>14.0.1</version>
+		</dependency>
+		
+		<!-- CSV Parser -->
+		<dependency>
+			<groupId>net.sf.jsefa</groupId>
+			<artifactId>jsefa</artifactId>
+			<version>1.1.1.RELEASE</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
