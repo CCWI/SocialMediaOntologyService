@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: socialMediaOntologyService-service-api
+Bundle-SymbolicName: socialMediaOntologyService-service-api
+Bundle-Version: 1.0.0.qualifier
+Export-Package: de.hm.ccwi.socialMediaOntologyService.service.api,
+ de.hm.ccwi.socialMediaOntologyService.service.api.bo,
+ de.hm.ccwi.socialMediaOntologyService.service.api.exception

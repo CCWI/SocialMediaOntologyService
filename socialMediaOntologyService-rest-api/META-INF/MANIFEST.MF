@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: socialMediaOntologyService-rest-api
+Bundle-SymbolicName: socialMediaOntologyService-rest-api
+Bundle-Version: 1.0.0.qualifier
+Export-Package: de.hm.ccwi.socialMediaOntologyService.rest,
+ de.hm.ccwi.socialMediaOntologyService.rest.dto.mapper,
+ de.hm.ccwi.socialMediaOntologyService.rest.resource

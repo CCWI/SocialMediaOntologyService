@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.hm.ccwi</groupId>
+		<artifactId>socialMediaOntologyService</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>socialMediaOntologyService-build</artifactId>
+
+	<properties>
+		<start-class>de.hm.ccwi.socialMediaOntologyService.Application</start-class>
+		<docker.image.prefix>hmccwi</docker.image.prefix>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>de.hm.ccwi</groupId>
+			<artifactId>socialMediaOntologyService-base</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.hm.ccwi</groupId>
+			<artifactId>socialMediaOntologyService-rest-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.hm.ccwi</groupId>
+			<artifactId>socialMediaOntologyService-rest-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.hm.ccwi</groupId>
+			<artifactId>socialMediaOntologyService-service-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.hm.ccwi</groupId>
+			<artifactId>socialMediaOntologyService-service-impl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.hm.ccwi</groupId>
+			<artifactId>socialMediaOntologyService-dal-rdf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.hm.ccwi</groupId>
+			<artifactId>socialMediaOntologyService-dal-mariadb</artifactId>
+		</dependency>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>socialmediaontologyservice</finalName>
+		<directory>target</directory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<imageName>${project.build.finalName}-exec</imageName>
+					<baseImage>java</baseImage>
+					<dockerDirectory>src/main/docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<classifier>exec</classifier>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>${start-class}</mainClass>
+					<outputDirectory>${project.build.directory}/docker/</outputDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration combine.self="override">
+					<groups>de.hm.ccwi.socialMediaOntologyService.base.testconfig.category.IntegrationTest</groups>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

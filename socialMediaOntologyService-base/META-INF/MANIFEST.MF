@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: socialMediaOntologyService-base
+Bundle-SymbolicName: socialMediaOntologyService-base
+Bundle-Version: 1.0.0.qualifier
+Export-Package: de.hm.ccwi.socialMediaOntologyService.base.dto,
+ de.hm.ccwi.socialMediaOntologyService.base.security,
+ de.hm.ccwi.socialMediaOntologyService.base.testconfig.category

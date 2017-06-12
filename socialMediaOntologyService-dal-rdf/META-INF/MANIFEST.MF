@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: socialMediaOntologyService-dal-rdf
+Bundle-SymbolicName: socialMediaOntologyService-dal-rdf
+Bundle-Version: 1.0.0.qualifier
+Export-Package: de.hm.ccwi.semanticWebService.dal.rdf,
+ de.hm.ccwi.socialMediaOntologyService.dal.rdf

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: socialMediaOntologyService-service-impl
+Bundle-SymbolicName: socialMediaOntologyService-service-impl
+Bundle-Version: 1.0.0.qualifier
+Export-Package: de.hm.ccwi.socialMediaOntologyService.service.impl,
+ de.hm.ccwi.socialMediaOntologyService.service.impl.mapper

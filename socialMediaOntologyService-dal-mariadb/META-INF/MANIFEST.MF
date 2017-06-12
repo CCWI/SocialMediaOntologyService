@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: socialMediaOntologyService-dal-mariadb
+Bundle-SymbolicName: socialMediaOntologyService-dal-mariadb
+Bundle-Version: 1.0.0.qualifier
+Export-Package: de.hm.ccwi.socialMediaOntologyService.dal,
+ de.hm.ccwi.socialMediaOntologyService.dal.entity,
+ de.hm.ccwi.socialMediaOntologyService.dal.repo
